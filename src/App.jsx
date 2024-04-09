@@ -1,41 +1,48 @@
-import useFetch from './hooks/useFecthCharacters';
+import useFetch from './hooks/useFetchCharacters.js';
 import './App.css';
-import { useState } from 'react';
+import CardApp from './components/CardApp.jsx';
+import { useState, useEffect } from 'react';
+
 
 function App() {
-  const urlPokemon = 'https://pokeapi.co/api/v2/pokemon/1';
+ /*const urlPokemon = 'https://pokeapi.co/api/v2/pokemon/1';
   const urlRick = 'https://rickandmortyapi.com/api/character/1';
+  const { data: pokemon, loading: pokemonLoading} = useFetchCharacter(urlPokemon)
+  const { data: rick, loading: rickLoading } = useFetchCharacter(urlRick)
+  const isLoading = <p>Loading</p>
   
 
-  const {data: pokemonData, loading: pokemonLoading} = useFetch(urlPokemon);
-  const {data: rickData, loading: rickLoading} = useFetch(urlRick);
-  
+
   return (
-    <div>
-    <h2>Personaje Pokemon</h2>
-    {pokemonLoading ? ( 
-    <p>Cargando...</p>
-    ) : (
     <>
-    <p>{pokemonData.name}</p>
-    <img src={pokemonData.sprites.front_default} alt={pokemonData.name}  />
+    
+    {pokemonLoading 
+      ? (isLoading) 
+      : (<CardApp 
+          title='Personaje Pokemon'
+          name={pokemon.name}
+          image={pokemon.sprites.other.dream_world.front_default}
+          />)
+    }
+    {rickLoading 
+      ? (isLoading) 
+      : (<CardApp 
+          title='Personaje Rick and Morty'
+          name={rick.name}
+          image={rick.image}
+        />)
+    }    
     </>
-    )}
-    <h2>Personaje Rick and Morty</h2>
-    {rickLoading ? (
-      <p>Cargando...</p>
-    ) : (
-    <>
-    <p>{rickData.name}</p>
-    <img src={rickData.image} alt={rickData.name} />
-    </> 
-    )} 
-    </div>
-  )
+    );
 }
 
+export default App;*/
 
-  /*const [pokemonName, setPokemonName] = useState('');
+
+
+  
+  
+  const [pokemonName, setPokemonName] = useState('');
   const [rickName, setRickName] = useState('');
   const [pokemonUrl, setPokemonUrl] = useState('');
   const [rickUrl, setRickUrl] = useState('');
@@ -104,6 +111,5 @@ function App() {
       )}
     </>
   );
-}*/
-
+}
 export default App;
